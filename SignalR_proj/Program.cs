@@ -8,14 +8,18 @@ namespace SignalR_proj
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddSignalR(hubOptions =>
+            {
+                hubOptions.EnableDetailedErrors = true;
+                hubOptions.ClientTimeoutInterval = System.TimeSpan.FromMinutes(2);
+                hubOptions.KeepAliveInterval = System.TimeSpan.FromMinutes(2);
+            });
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -23,6 +27,12 @@ namespace SignalR_proj
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapHub<SignalR_proj.Hubs.KDA_Hub_1>("/Chat");
+            });
 
             app.UseAuthorization();
 

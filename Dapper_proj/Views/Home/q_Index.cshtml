@@ -1,0 +1,27 @@
+﻿@using Dapper;
+
+@{
+    ViewData["Title"] = "q_Index";
+}
+
+<h3>Запросы скалярных значений</h3>
+var sql = "SELECT COUNT(*) FROM tennisists"
+<br>
+
+@{
+    string strCon = @"
+                Data Source=host.docker.internal,1433;
+                Initial Catalog=KDA_tennisists;
+                User Id=sa;
+                Password=Qwerqwer1;
+                Connect Timeout=30;
+                Encrypt=False;
+                Trust Server Certificate=False;
+                Application Intent=ReadWrite;
+            ";
+
+    System.Data.IDbConnection db = new Microsoft.Data.SqlClient.SqlConnection(strCon);
+    string sql = "SELECT COUNT(*) FROM tennisists";
+    var res = db.ExecuteScalar<int>(sql);
+}
+res = @res;

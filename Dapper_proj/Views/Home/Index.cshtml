@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Список клиентов";
+}
+
+@model IEnumerable<Dapper_proj.Models.Tennisist>
+
+<div class="text-center">
+    <h3 class="display-4" style="font:500 2em Calibri ">Простые CRUD запросы</h3>
+</div>
+
+<h2>
+    @ViewData["Title"]
+</h2>
+
+<p>
+    <a asp-controller="Home" asp-action="Create">Добавить</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Гражданство</th>
+        <th>Рейтинг</th>
+        <th>Дата рождения</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Sername</td>
+            <td>@item.Name</td>
+            <td>@item.Citizenship</td>
+            <td>@item.Global_rating</td>
+            <td>@item.Birth</td>
+            <td>
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Tennisist_id">Изменить</a>
+                |
+                <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Tennisist_id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

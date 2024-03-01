@@ -1,0 +1,34 @@
+﻿@model Dapper_proj.Models.Tennisist
+
+@{
+    ViewData["Title"] = "Удалить клиента";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <dl>
+        <dt>Фамилия</dt>
+        <dd>@Model.Sername</dd>
+
+        <dt>Имя</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Гражданство</dt>
+        <dd>@Model.Citizenship</dd>
+
+        <dt>Рейтинг</dt>
+        <dd>@Model.Global_rating</dd>
+
+        <dt>Дата рождения</dt>
+        <dd>@Model.Birth</dd>
+    </dl>
+    <div>
+        <form asp-controller="Home" asp-action="Delete" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger" value="Удалить" />
+                <a asp-controller="Home" asp-action="Index" class="btn btn-info">Отменить</a>
+            </div>
+        </form>
+    </div>
+</div>

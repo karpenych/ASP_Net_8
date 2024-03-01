@@ -1,0 +1,34 @@
+﻿@page
+@model SignalR_proj.Pages.Index1Model
+@{
+}
+
+<h3>Демонстрация SignalR</h3>
+<div class="row">
+    <div class='col-8'>
+        <table style="width:100%; text-align:center" border="1" id="tb">
+            <tr> <td style="width:25%"> Клиент</td>
+                <td style="width:25%">Текущее значение</td>
+                <td style="width:30%">Время обновления</td>
+                <td style="width:20%">Изменение (%)</td>
+            </tr>
+        </table>
+    </div>
+    <div class='col-2' style="text-align:right">
+        Ник клиента &nbsp; <br>
+        Сообщение &nbsp; <br>
+    </div>
+    <div class="col-2">
+        <input type="text" id="userInput" value="" /> <br>
+        <input type="number" id="messageInput" /> <br>
+        <input type="number" id="prev_messageInput" disabled /> <br>
+        <input type="button" id="sendButton" value=" Обновить данные" />
+    </div>
+</div>
+ <hr>
+<div id="ntf">
+
+ </div>
+
+ <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+ <script src="~/js/my_js_1.js"></script>
