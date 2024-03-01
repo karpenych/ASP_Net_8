@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            font-size: 0.9em;
+            font-family: Calibri;
+        }
+
+        #log {
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <h4> Web сокеты на web странице</h4>
+    <div>
+        <a href="#" onclick="connect()">
+            Подключится к серверу и обменяться cообщениями
+        </a>
+    </div>
+    <div id="log">
+    </div>
+
+    <script>
+        function connect() {
+            var res = document.getElementById("log");
+            var ws = new WebSocket("ws://localhost:8080");
+            res.innerHTML += "<br>Попытка рукопожатия . .";
+
+            ws.onopen = function () {
+                ws.send("Hello World");
+                res.innerHTML += "<br>Отправка сообщения серверу ";
+            };
+
+            ws.onclose = function (evt) {
+                res.innerHTML += "<br>Соединение с сервером закрыто. code= "
+                + evt.code + " : " + evt.reason + " : Чистое закрытие = " + evt.wasClean;
+            };
+
+            ws.onmessage = function (evt) {
+                var received_msg = evt.data;
+                res.innerHTML += "<br>Получено:" + received_msg;
+                ws.close();
+            };
+
+            ws.onerror = function (evt) {
+                res.innerHTML += "<br>Ошибка " + evt.message;
+            };
+        };
+    </script>
+</body>
+</html>
