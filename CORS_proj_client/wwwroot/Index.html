@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CORS_2</title>
+    <style>
+        * {
+            font: 400 1.1em Calibri;
+            color: darkred
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            <button id="btn_с" value="Запрос">
+                Запрос к CORS_1 + передача идентификационных данных
+            </button>
+        </p>
+    </div>
+    <div><p><button id="btn" value="Запрос">Запрос к CORS_1</button></p></div>
+    <div id="result1"> </div>
+    <div id="headers1"> </div><br>
+    <div id="result2"> </div>
+    <div id="headers2"> </div><br><br>
+    <script>
+        var btn = document.getElementById("btn");
+        var result = document.getElementById("result");
+        var request = new XMLHttpRequest();
+        var headers = document.getElementById("headers");
+        var res_num;
+
+        btn_с.addEventListener("click", function (e) {
+            document.cookie = "User_Identity=Domain:FOUR--UserName:KDA--Password:VeryStrongPassword";
+            request.open("GET", "https://localhost:7182/CorsC/");
+            request.onreadystatechange = reqReadyStateChange;
+            request.withCredentials = true;
+            request.send();
+            res_num = 1;
+        });
+
+        btn.addEventListener("click", function (e) {
+            request.open("GET", "https://localhost:7182/");
+            request.onreadystatechange = reqReadyStateChange;
+            request.send();
+            res_num = 2;
+        });
+
+        function reqReadyStateChange() {
+            if (request.readyState == 4) {
+                var status = request.status;
+                if (status == 200) { 
+                    document.getElementById('result' + res_num).innerText = request.responseText;
+                    document.getElementById('headers' + res_num).innerText = "Получено заголовков "
+                        + request.HEADERS_RECEIVED.valueOf()
+                        + "\n" + request.getAllResponseHeaders();
+                }
+                else result1.innerHTML = request.statusText;
+            }
+        }
+    </script>
+</body>
+</html>

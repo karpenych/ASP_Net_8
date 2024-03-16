@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSocketProj", "WebSocketP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_proj", "SignalR_proj\SignalR_proj.csproj", "{0513446B-6626-4ECC-B7A8-6CCB61363765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper_proj", "Dapper_proj\Dapper_proj.csproj", "{92195318-7C74-4FD2-975D-5D40F15FE126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper_proj", "Dapper_proj\Dapper_proj.csproj", "{92195318-7C74-4FD2-975D-5D40F15FE126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CORS_proj_server", "CORS_proj_server\CORS_proj_server.csproj", "{73DD73D1-4BC1-4367-AB0A-A02CB97C309E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CORS_proj_client", "CORS_proj_client\CORS_proj_client.csproj", "{414A83C3-8C6C-4A88-AB54-E033A789C41A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{92195318-7C74-4FD2-975D-5D40F15FE126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92195318-7C74-4FD2-975D-5D40F15FE126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92195318-7C74-4FD2-975D-5D40F15FE126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73DD73D1-4BC1-4367-AB0A-A02CB97C309E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73DD73D1-4BC1-4367-AB0A-A02CB97C309E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73DD73D1-4BC1-4367-AB0A-A02CB97C309E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73DD73D1-4BC1-4367-AB0A-A02CB97C309E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414A83C3-8C6C-4A88-AB54-E033A789C41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414A83C3-8C6C-4A88-AB54-E033A789C41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414A83C3-8C6C-4A88-AB54-E033A789C41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414A83C3-8C6C-4A88-AB54-E033A789C41A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
